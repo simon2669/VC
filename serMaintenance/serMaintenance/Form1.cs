@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace serMaintenance
-{   
+{
 
     public partial class Form1 : Form
     {
@@ -34,8 +34,7 @@ namespace serMaintenance
         {
             var u = new User()
             {
-                LastName = textBox1.Text,
-                FirstName = textBox2.Text
+                FullName = textBox1.Text + " " + textBox2.Text
             };
             users.Add(u);
         }
