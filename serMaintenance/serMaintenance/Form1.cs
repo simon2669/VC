@@ -61,5 +61,11 @@ namespace serMaintenance
                 }
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var x = (User)listBox1.SelectedItem;
+            users.Remove(x);
+        }
     }
 }
