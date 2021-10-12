@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,28 @@ namespace serMaintenance
                 FullName = textBox1.Text + " " + textBox2.Text
             };
             users.Add(u);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using(var sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                sfd.FilterIndex = 2;
+
+                if(sfd.ShowDialog() == DialogResult.OK)
+                {
+                    TextWriter tw = new StreamWriter(sfd.FileName);
+
+                    foreach(User s in users)
+                    {
+                        tw.WriteLine(s.FullName+";");
+
+
+                    }
+                    tw.Close();
+                }
+            }
         }
     }
 }
